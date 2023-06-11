@@ -1,0 +1,90 @@
+/* header css */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.main_nav {
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1005;
+  background-color: #eeeff1;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav_link::before {
+  content: "";
+  position: absolute;
+  background:#FAB000;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+.nav_list {
+  text-decoration: none;
+  color: black;
+}
+
+.nav_link:hover:before {
+  width: 100%;
+}
+.com-logo .logo {
+  font-size: 45px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.logo_link {
+  text-decoration: none;
+  color: black;
+}
+.navitems li {
+  position: relative;
+  font-weight: 700;
+  font-size: 18px;
+}
+.navitems ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+.navbtn {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+.navbtn .loginbtn {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 13px;
+  text-decoration: none;
+  color:  #fd5e3b;
+  transition: 0.3s ease-in;
+}
+.loginbtn:hover{
+  color:  #fd5e3b;
+  
+}
+.navbtn .rentbtn {
+  border: none;
+  background-color: #474fa0;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 13px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 7px;
+}
+.rentbtn:hover{
+  color: #fd5e3b;
+}

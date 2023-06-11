@@ -1,0 +1,53 @@
+.footer_main{
+ height: 25rem;
+ background-color: #474FA0;
+ color: white;
+ width: 100%;
+ margin-top: 5rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.inner_footer{
+	/* border: 1px solid rgb(0, 0, 0); */
+	width: 1300px;
+	height: 20rem;
+}
+.main_footer{
+	/* border: 1px solid white; */
+	height: 60%;
+	display: flex;
+   justify-content: space-between;
+}
+
+.company_about{
+	/* border: 1px solid red; */
+}
+
+
+.footer_main_text{
+	font-size: 20px;
+	font-weight: 500;
+	position: relative;
+}
+.footer_main_text::before{
+	content: "";
+	position: absolute;
+	background: #fab000;
+	width: 0;
+	height: 3px;
+	bottom: -2px;
+	left: 0;
+	transition: 0.3s ease;
+	width: 60%;
+}
+.email_contact, .call_contact{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.inner_company{
+    display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
