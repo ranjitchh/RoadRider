@@ -1,5 +1,5 @@
 .footer_main{
- height: 25rem;
+ min-height: 25rem;
  background-color: #474FA0;
  color: white;
  width: 100%;

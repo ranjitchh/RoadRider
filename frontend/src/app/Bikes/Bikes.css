@@ -1,0 +1,126 @@
+.bike_section {
+  width: 100%;
+}
+.bike_banner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  right: 9%;
+  margin-top: 40px;
+}
+
+.right_tag {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+}
+.tab_box {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+  border-bottom: 3px solid #e1e1e1;
+}
+.left_tag {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+}
+
+.bike_section {
+  width: 1100px;
+  margin: 0 auto;
+}
+.tab_btn {
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  margin: 5px;
+}
+
+.tab_btn::after {
+  content: "";
+  position: absolute;
+  background: #e07c18;
+  width: 0;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.tab_btn.active::after {
+  width: 100%;
+}
+
+.content_box {
+  padding: 20px;
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  border: 5px solid rgb(0, 0, 0);
+  display: none;
+}
+.show_content{
+  display: inline;
+}
+.Bike_card{
+  display: flex;
+  flex-wrap: wrap; 
+  align-items: center;
+  justify-content: center;
+  gap: 53px; 
+  margin-top: 20px;
+}
+.content-card {
+  display: none;
+  width: 278px;
+  height: 300px;
+  border-radius: 20px;
+  background-color: #e1e1e1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-card .Image_Card {
+  border-radius: 25px 25px 0px 0px;
+}
+.info_tag {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+}
+.bike_rate {
+  color: red;
+}
+.bike_used {
+  font-weight: 500;
+  padding: 5px;
+}
+.Book_ride {
+  padding: 12px 22px;
+  color: white;
+  border-radius: 25px;
+  background-color: red;
+  margin:15px;
+}
