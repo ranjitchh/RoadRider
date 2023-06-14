@@ -1,9 +1,9 @@
-const express=require("express")
+const express = require("express");
 const router = express.Router();
-const  bcrypt=require("bcryptjs")
-const db=require("../db/config.js")
+const bcrypt = require("bcryptjs");
+const db = require("../db/config.js");
 
-const multer=require("multer")
+const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -45,41 +45,40 @@ router.post("/reg", upload.single("file"), async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-    const user_email = req.body.user_email;
-    const user_password = req.body.user_password;
-  
-    try {
-      const query = `
+  const user_email = req.body.user_email;
+  const user_password = req.body.user_password;
+
+  try {
+    const query = `
         SELECT user_password, user_id
         FROM public.users
         WHERE user_email = $1
       `;
-  
-      const result = await db.query(query, [user_email]);
-  
-      if (result.rows.length === 0) {
-        // No user found with the provided email
-        return res.status(401).json({ error: "Invalid user credentials" });
-      }
-  
-      const storedPassword = result.rows[0].user_password;
-      const isMatch = await bcrypt.compare(user_password, storedPassword);
-  
-      if (isMatch) {
-        const ID = result.rows[0].user_id;
-        // Passwords match, authentication successful
-        res
-          .status(200)
-          .json({ message: "User authentication successful", id: ID });
-      } else {
-        // Passwords don't match, authentication failed
-        res.status(401).json({ error: "Invalid user credentials" });
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "An error occurred during login" });
+
+    const result = await db.query(query, [user_email]);
+
+    if (result.rows.length === 0) {
+      // No user found with the provided email
+      return res.status(401).json({ error: "Invalid user credentials" });
     }
-  });
-  
+
+    const storedPassword = result.rows[0].user_password;
+    const isMatch = await bcrypt.compare(user_password, storedPassword);
+
+    if (isMatch) {
+      const ID = result.rows[0].user_id;
+      // Passwords match, authentication successful
+      res
+        .status(200)
+        .json({ message: "User authentication successful", id: ID });
+    } else {
+      // Passwords don't match, authentication failed
+      res.status(401).json({ error: "Invalid user credentials" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "An error occurred during login" });
+  }
+});
 
 module.exports = router;
