@@ -32,7 +32,7 @@ router.post("/reg", upload.single("file"), async (req, res) => {
       req.body.owner_city,
       req.file.path,
     ];
-    const query = `INSERT INTO public.owners (user_id,owner_name, owner_email,owner_number, owner_password,owner_address,owner_city)
+    const query = `INSERT INTO public.owners (owner_id,owner_name, owner_email,owner_number, owner_password,owner_address,owner_city)
     VALUES ($1, $2, $3, $4, $5,$6,$7)`;
     await db.query(query, values);
     res.status(200).json({ message: "owner registered successfully." });
