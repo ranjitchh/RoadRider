@@ -5,12 +5,21 @@ const db = require("../db/config.js");
 
 router.post("/reg", async (req, res) => {
   try {
+    const owner_email = req.body.owner_email;
+    // Check if owner exists
+    const checkQuery = `SELECT * FROM public.owners WHERE owner_email=$1`;
+    const checkResult = await db.query(checkQuery, [owner_email]);
+    if (checkResult.rows.length > 0) {
+      return res.status(409).json({ error: "owner already exists." });
+    }
+
+    // Create new owner account
     const owner_password = req.body.owner_password;
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(owner_password, salt);
     const values = [
       req.body.owner_name,
-      req.body.owner_email,
+      owner_email,
       req.body.owner_number,
       hashedPassword,
     ];
