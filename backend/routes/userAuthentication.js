@@ -23,17 +23,13 @@ router.post("/reg", upload.single("file"), async (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(user_password, salt);
     const values = [
-      req.body.user_id,
       req.body.user_name,
       req.body.user_email,
       req.body.user_number,
       hashedPassword,
-      req.body.user_address,
-      req.body.user_city,
-      req.file.path,
     ];
-    const query = `INSERT INTO public.users (user_id,user_name, user_email,user_number, user_password,user_address,user_city,user_dl)
-    VALUES ($1, $2, $3, $4, $5,$6,$7,$8)`;
+    const query = `INSERT INTO public.users (user_name, user_email,user_number, user_password)
+    VALUES ($1, $2, $3, $4)`;
     await db.query(query, values);
     res.status(200).json({ message: "user registered successfully." });
   } catch (error) {
@@ -45,8 +41,8 @@ router.post("/reg", upload.single("file"), async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const user_email = req.body.user_email;
-  const user_password = req.body.user_password;
+  const user_email = req.body.email;
+  const user_password = req.body.password;
 
   try {
     const query = `

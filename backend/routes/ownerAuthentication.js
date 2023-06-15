@@ -3,37 +3,20 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const db = require("../db/config.js");
 
-const multer = require("multer");
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads");
-  },
-  filename: function (req, file, cb) {
-    console.log(file);
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
-
-router.post("/reg", upload.single("file"), async (req, res) => {
+router.post("/reg", async (req, res) => {
   try {
     const owner_password = req.body.owner_password;
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(owner_password, salt);
     const values = [
-      req.body.owner_id,
       req.body.owner_name,
       req.body.owner_email,
       req.body.owner_number,
       hashedPassword,
-      req.body.owner_address,
-      req.body.owner_city,
-      req.file.path,
     ];
-    const query = `INSERT INTO public.owners (owner_id,owner_name, owner_email,owner_number, owner_password,owner_address,owner_city)
-    VALUES ($1, $2, $3, $4, $5,$6,$7)`;
+    console.log(values);
+    const query = `INSERT INTO public.owners (owner_name, owner_email,owner_number, owner_password)
+    VALUES ($1, $2, $3, $4)`;
     await db.query(query, values);
     res.status(200).json({ message: "owner registered successfully." });
   } catch (error) {
@@ -44,9 +27,30 @@ router.post("/reg", upload.single("file"), async (req, res) => {
   }
 });
 
+router.post("/categories", async (req, res) => {
+  try {
+    const values = [
+      req.body.category_id,
+      req.body.category_type,
+      req.body.category_model,
+      req.body.pricing_hr,
+    ];
+    console.log(values);
+    const query = `INSERT INTO public.categories (category_id,category_type,category_model,pricing_hr)
+    VALUES ($1, $2, $3,$4)`;
+    await db.query(query, values);
+    res.status(200).json({ message: "category registered successfully." });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while registering the category." });
+  }
+});
+
 router.post("/login", async (req, res) => {
-  const owner_email = req.body.owner_email;
-  const owner_password = req.body.owner_password;
+  const owner_email = req.body.email;
+  const owner_password = req.body.password;
 
   try {
     const query = `

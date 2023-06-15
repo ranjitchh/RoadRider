@@ -7,7 +7,8 @@ import axios from "axios";
 import login from "./login.module.css";
 
 const Login = () => {
-  const API_ENDPOINT = "http://localhost:8800/user/login";
+  const USER_ENDPOINT = "http://localhost:8800/user/login";
+  const OWNER_ENDPOINT = "http://localhost:8800/owner/login";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,9 +18,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = axios.post(API_ENDPOINT, {
-        user_email: email,
-        user_password: password,
+      const response = axios.post(USER_ENDPOINT, {
+        email: email,
+        password: password,
         loginType: "user",
       });
 
@@ -41,9 +42,9 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(API_ENDPOINT, {
-        user_email: email,
-        user_password: password,
+      const response = await axios.post(OWNER_ENDPOINT, {
+        email: email,
+        password: password,
         loginType: "owner",
       });
 

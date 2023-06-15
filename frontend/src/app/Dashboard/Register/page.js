@@ -6,7 +6,8 @@ import axios from "axios";
 import "./register.css";
 
 const Register = () => {
-  const API_ENDPOINT = "http://localhost:8800/user/reg";
+  const USER_ENDPOINT = "http://localhost:8800/user/reg";
+  const OWNER_ENDPOINT = "http://localhost:8800/owner/reg";
 
   // State variables
   const [name, setName] = useState("");
@@ -21,9 +22,11 @@ const Register = () => {
 
     try {
       // Make a POST request to the API endpoint
-      const response = await axios.post(API_ENDPOINT, {
+      const response = await axios.post(USER_ENDPOINT, {
         user_email: email,
         user_password: password,
+        user_number: phone,
+        user_name: name,
         loginType: "user",
       });
 
@@ -49,10 +52,12 @@ const Register = () => {
 
     try {
       // Make a POST request to the API endpoint
-      const response = await axios.post(API_ENDPOINT, {
-        user_email: email,
-        user_password: password,
-        loginType: "owner",
+      const response = await axios.post(OWNER_ENDPOINT, {
+        owner_email: email,
+        owner_password: password,
+        owner_number: phone,
+        owner_name: name,
+        loginType: "admin",
       });
 
       // Check the response status code
