@@ -19,12 +19,21 @@ const upload = multer({ storage: storage });
 
 router.post("/reg", upload.single("file"), async (req, res) => {
   try {
+    const user_email = req.body.user_email;
+    // Check if user exists
+    const checkQuery = `SELECT * FROM public.users WHERE user_email=$1`;
+    const checkResult = await db.query(checkQuery, [user_email]);
+    if (checkResult.rows.length > 0) {
+      return res.status(409).json({ error: "user already exists." });
+    }
+
+    // Create new user account
     const user_password = req.body.user_password;
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(user_password, salt);
     const values = [
       req.body.user_name,
-      req.body.user_email,
+      user_email,
       req.body.user_number,
       hashedPassword,
     ];
