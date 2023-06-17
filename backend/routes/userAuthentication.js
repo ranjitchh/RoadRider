@@ -55,7 +55,7 @@ router.post("/login", async (req, res) => {
 
   try {
     const query = `
-        SELECT user_password, user_id
+        SELECT user_password, user_id,user_name
         FROM public.users
         WHERE user_email = $1
       `;
@@ -75,7 +75,12 @@ router.post("/login", async (req, res) => {
       // Passwords match, authentication successful
       res
         .status(200)
-        .json({ message: "User authentication successful", id: ID });
+        .json({
+          message: "User authentication successful",
+          id: result.rows[0].user_id,
+          name: result.rows[0].user_name,
+          user: "user",
+        });
     } else {
       // Passwords don't match, authentication failed
       res.status(401).json({ error: "Invalid user credentials" });
