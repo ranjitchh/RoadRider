@@ -63,7 +63,7 @@ router.post("/login", async (req, res) => {
 
   try {
     const query = `
-        SELECT owner_password, owner_id
+        SELECT owner_password, owner_id,owner_name
         FROM public.owners
         WHERE owner_email = $1
       `;
@@ -78,10 +78,14 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(owner_password, storedPassword);
 
     if (isMatch) {
-      const ID = result.rows[0].owner_id;
       res
         .status(200)
-        .json({ message: "owner authentication successful", id: ID });
+        .json({
+          message: "owner authentication successful",
+          id: result.rows[0].owner_id,
+          name: result.rows[0].owner_name,
+          user: "owner",
+        });
     } else {
       res.status(401).json({ error: "Invalid owner credentials" });
     }

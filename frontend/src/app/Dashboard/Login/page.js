@@ -26,7 +26,9 @@ const Login = () => {
 
       if (response.status === 200) {
         console.log("User Login successful");
-
+        localStorage.setItem("user", res.data.user);
+        localStorage.setItem("userId", res.data.id);
+        localStorage.setItem("userName", res.data.name);
         // Redirect to a different page upon successful user login
       } else {
         console.log("User Login failed");
@@ -47,9 +49,11 @@ const Login = () => {
         password: password,
         loginType: "owner",
       });
-
       if (response.status === 200) {
         console.log("Owner Login successful");
+        localStorage.setItem("user", res.data.user);
+        localStorage.setItem("userId", res.data.id);
+        localStorage.setItem("userName", res.data.name);
         // Redirect to a different page upon successful owner login
       } else {
         console.log("Owner Login failed");
