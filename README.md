@@ -15,10 +15,12 @@ RoadRider offers the following features:
 The RoadRider web app has been developed using the following technologies:
 
 - **Frontend**: Ranjit Chhetri has used modern frontend technologies, including:
+
   - Next.js: A React framework for building server-side rendered and statically generated applications.
   - [Other frontend technologies used]
 
 - **Backend**: Thanmay Nath has used the following technologies for backend development:
+
   - Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine, providing a scalable and efficient server-side environment.
   - [Other backend technologies used]
 
@@ -55,6 +57,7 @@ To set up and run the RoadRider web app locally, follow these steps:
    ```
 
 5. Set up the PostgreSQL database:
+
    - Create a new PostgreSQL database and note down the database credentials.
 
 6. Configure the environment variables:
@@ -109,5 +112,5 @@ We would like to acknowledge the following individuals and resources for their c
 
 If you have any questions, suggestions, or issues related to RoadRider, please contact:
 
-- Thanmay Nath (Backend Developer) - [contact-email]
-- Ranjit Chhetri (Frontend Developer) - [
+- Thanmay Nath (Backend Developer) - [thanmaynath557@gmail.com]
+- Ranjit Chhetri (Frontend Developer) - []

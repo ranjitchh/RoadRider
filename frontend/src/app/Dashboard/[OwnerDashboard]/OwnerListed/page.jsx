@@ -1,52 +1,25 @@
 "use client";
 import "./OwnerListed.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const page = () => {
-  const [vehicleList, setVehicleList] = useState([
-    {
-      id: 1,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 2,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 3,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 4,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 5,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 6,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-    {
-      id: 7,
-      name: "MT15",
-      price: "$150/hour",
-      used: "Medium Used",
-    },
-  ]);
+  const [vehicleList, setVehicleList] = useState([]);
+
+  useEffect(() => {
+    const fetchOwnerVehicles = async () => {
+      try {
+        const ownerId = localStorage.getItem("user_id");
+        const response = await axios.get(
+          `http://localhost:8800/oner/vehicles/${ownerId}`
+        );
+        setVehicleList(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchOwnerVehicles();
+  }, []);
 
   const handleRemoveVehicle = (id) => {
     setVehicleList((prevList) =>
