@@ -12,12 +12,14 @@
   z-index: 100;
   background-color: white;
   color: black;
+
 }
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  /* border: 1px solid red; */
 }
 
 .nav_link::before {

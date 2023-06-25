@@ -1,12 +1,9 @@
-import React from "react";
+"use client";
 import Styles from "./header.module.css";
 import Link from "next/link";
-// import DarkMode from "../DarkModeToggle/DarkMode";
+import { useState, useEffect } from "react";
+
 const Header = () => {
- 
-   
-
-
   return (
     <main className={Styles.main_nav}>
       <div className={`${Styles.navbar} ${Styles.container}`}>
@@ -44,23 +41,13 @@ const Header = () => {
                 About us
               </Link>
             </li>
-            <li>
-              <Link
-                href="/Shop"
-                className={`${Styles.nav_link} ${Styles.nav_list}`}
-                key="Shop"
-              >
-                Shop
-              </Link>
-            </li>
           </ul>
         </div>
         <div className={Styles.navbtn}>
-          {/* <DarkMode/> */}
-          <Link href="/Dashboard/Login" className={Styles.loginbtn} key="login">
-             Login
+          <Link href="/Login" className={Styles.loginbtn} key="login">
+            Login
           </Link>
-          <Link href="/Dashboard/Register" className={Styles.rentbtn} key="signup">
+          <Link href="/Register" className={Styles.rentbtn} key="signup">
             SignUp
           </Link>
         </div>

@@ -1,0 +1,55 @@
+.Listed_div {
+  height: 90vh;
+  /* border: 2px solid black; */
+  margin-top: 4.5rem;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+.listed_vehicle {
+  /* border: 1px solid red; */
+  width: 80%;
+  height: 80vh;
+}
+.listed_heading {
+  font-size: 45px;
+  font-weight: 600;
+  color: rgb(255, 38, 38);
+  text-align: center;
+}
+.listed_card {
+  height: 50vh;
+  width: 95%;
+  /* border: 2px solid black; */
+  margin: 0 auto;
+  overflow: auto;
+}
+.l_card {
+  height: 100px;
+  width: 95%;
+  /* border: 2px solid black; */
+  margin: 0 auto;
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background: #d9d9d9;
+  margin-bottom: 15px;
+}
+.l_card h3 {
+  font-size: 21px;
+  font-weight: 600;
+}
+.vechile_price {
+  color: red;
+}
+.remove_btn button {
+  border-radius: 15px;
+  padding: 14px 16px;
+  border: none;
+  background-color: #ff3f5b;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}

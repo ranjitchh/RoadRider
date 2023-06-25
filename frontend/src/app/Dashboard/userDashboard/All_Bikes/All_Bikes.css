@@ -1,0 +1,84 @@
+.all_bikes {
+  height: 100vh;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.all_bikediv {
+  width: 1300px;
+  height: 100%;
+  padding: 0px 10px;
+}
+.all_bikediv h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+.bike_search {
+  height: 200px;
+  height: 100px;
+  border: 2px solid #d3d3d3;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vechile_type {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #d3d3d3;
+  width: 160px;
+  height: 80%;
+  padding: 10px 30px;
+  margin: 10px 10px;
+}
+.vechile_type .vechile_head {
+  font-size: 17px;
+  font-weight: 400;
+}
+.vechile_type select {
+  border: none;
+  background: transparent;
+  padding: 10px 60px;
+  font-weight: 600;
+  font-size: 20px;
+  margin-right: 35px;
+  outline: none;
+}
+.vechile_type select option {
+  background: transparent;
+  padding: 10px 60px;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: start;
+  outline: none;
+  border: none;
+}
+.pickup_dropoff {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  border-right: 1px solid #d3d3d3;
+  padding-right: 10px;
+  height: 100%;
+}
+
+.pickup_dropoff input {
+  padding: 4px 7px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+}
+.submit_button {
+  margin-right: 20px;
+  margin-left: -30px;
+}
+.submit_button button {
+  padding: 33px 30px;
+  border: none;
+  border-radius: 20px;
+  background-color: blue;
+  font-size: 20px;
+  color: white;
+}

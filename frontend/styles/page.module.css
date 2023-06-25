@@ -22,13 +22,13 @@
   position: relative;
   animation: inanimation 0.6s ease-in;
 }
-.tagline span{
+.tagline span {
   color: #fd5e3b;
 }
 .tagline::before {
   content: "";
   position: absolute;
-  background:#FAB000;
+  background: #fab000;
   width: 0;
   height: 5px;
   bottom: 0;
@@ -87,9 +87,11 @@
   height: 88px;
   bottom: 25px;
   right: -33px;
-  background: radial-gradient(50% 50% at 50% 50%,
-      #000000 0%,
-      rgba(0, 0, 0, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #000000 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   filter: blur(-7px);
   transform: rotate(343deg);
   z-index: -10;
@@ -105,7 +107,7 @@
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 }
-.form_container form{
+.form_container form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -122,7 +124,6 @@
   outline: none;
 }
 
-
 .search_btn {
   padding: 18px 13px;
   background-color: #474fa0;
@@ -134,7 +135,7 @@
   top: 3px;
   right: 3px;
 }
-.get_loc{
+.get_loc {
   padding: 20px 13px;
   background-color: #474fa0;
   border-radius: 12px;
@@ -196,7 +197,7 @@
 .underline::before {
   content: "";
   position: absolute;
-  background:#FAB000;
+  background: #fab000;
   width: 0;
   height: 5px;
   bottom: 0;
@@ -278,18 +279,19 @@
   bottom: 0px;
   right: 6%;
   z-index: -100;
-  background: radial-gradient(50% 50% at 50% 50%,
-      #000000 0%,
-      rgba(0, 0, 0, 0) 100%);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    #000000 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   transform: rotate(1deg);
 }
-.text_box{
+.text_box {
   width: 400px;
   height: 450px;
   /* border: 2px solid red; */
-
 }
-.inner_box{
+.inner_box {
   display: flex;
   align-items: center;
   justify-content: space-around;

@@ -1,0 +1,96 @@
+.ownerProfile {
+  height: 90vh;
+  border: 2px solid black;
+  margin-top: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ownerprofile_main {
+  height: 80%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dddddd;
+  border-radius: 23px;
+  flex-direction: column;
+}
+.ownerProfile h2 {
+  font-size: 45px;
+  font-weight: 700;
+  color: rgb(225, 57, 57);
+  margin: 10px;
+}
+.edit_profilecard {
+  /* background-color: #eaeaea; */
+  height: 400px;
+  width: 800px;
+  border-radius: 20px;
+}
+.edit_profilecard h3 {
+  font-size: 24px;
+  margin: 10px;
+}
+.owner_city {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-direction: column;
+}
+.numberandcity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.owner_city .address {
+  display: flex;
+  flex-direction: column;
+}
+
+.oinput_tag {
+  width: 90%;
+  height: 30px;
+  padding: 8px 9px;
+  display: block;
+  border: none;
+  outline: none;
+  background-color: #c0dbea;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: inherit;
+  margin-top: 10px;
+  text-align: start;
+}
+.Tinput_tag {
+  height: 100px;
+  padding: 8px 20px;
+  display: block;
+  border: none;
+  outline: none;
+  background-color: #c0dbea;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: inherit;
+  margin-top: 10px;
+  text-align: start;
+}
+.input_form label {
+  margin-right: 168px;
+  color: green;
+}
+.submit_owner {
+  text-align: center;
+}
+.submit_owner button {
+  border-radius: 15px;
+  padding: 14px 16px;
+  border: none;
+  background-color: #ff3f5b;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 50px;
+}

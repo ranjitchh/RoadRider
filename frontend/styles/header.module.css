@@ -1,4 +1,4 @@
-/* header css */
+/* header css
 .container {
   max-width: 1300px;
   margin: 0 auto;
@@ -10,7 +10,7 @@
   left: 0;
   right: 0;
   z-index: 1005;
-  background-color: #eeeff1;
+  background-color: #4785ff;
 }
 .navbar {
   display: flex;
@@ -22,7 +22,7 @@
 .nav_link::before {
   content: "";
   position: absolute;
-  background:#FAB000;
+  background: #fab000;
   width: 0;
   height: 3px;
   bottom: 0;
@@ -68,12 +68,11 @@
   font-weight: bold;
   padding: 10px 13px;
   text-decoration: none;
-  color:  #fd5e3b;
+  color: #fd5e3b;
   transition: 0.3s ease-in;
 }
-.loginbtn:hover{
-  color:  #fd5e3b;
-  
+.loginbtn:hover {
+  color: #fd5e3b;
 }
 .navbtn .rentbtn {
   border: none;
@@ -85,6 +84,6 @@
   text-decoration: none;
   border-radius: 7px;
 }
-.rentbtn:hover{
+.rentbtn:hover {
   color: #fd5e3b;
-}
+} */
