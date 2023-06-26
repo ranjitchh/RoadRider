@@ -78,20 +78,48 @@ router.post("/login", async (req, res) => {
     const isMatch = await bcrypt.compare(owner_password, storedPassword);
 
     if (isMatch) {
-      res
-        .status(200)
-        .json({
-          message: "owner authentication successful",
-          id: result.rows[0].owner_id,
-          name: result.rows[0].owner_name,
-          user: "owner",
-        });
+      res.status(200).json({
+        message: "owner authentication successful",
+        id: result.rows[0].owner_id,
+        name: result.rows[0].owner_name,
+        user: "owner",
+      });
     } else {
       res.status(401).json({ error: "Invalid owner credentials" });
     }
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "An error occurred during login" });
+  }
+});
+
+router.put("/update", async (req, res) => {
+  try {
+    const { owner_id, owner_address, owner_city } = req.body;
+    const query = `
+      UPDATE public.owners
+      SET owner_address = $1, owner_city = $2
+      WHERE owner_id = $3
+    `;
+    await db.query(query, [owner_address, owner_city, owner_id]);
+    res.status(200).send("Owner profile updated successfully");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error updating owner profile");
+  }
+});
+
+router.get("/vehicles/${owner_id}", async (req, res) => {
+  try {
+    //const { owner_id } = req.body;
+    const owner_id = req.params(owner_id);
+    const query = `SELECT * FROM  public.vehicles WHERE owner_id =$1`;
+    const data = await db.query(query, [owner_id]);
+    const result = data.rows;
+    return res.send(result).status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error });
   }
 });
 

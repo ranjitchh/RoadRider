@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const user = require("./routes/userAuthentication");
 const owner = require("./routes/ownerAuthentication");
+const vehicles = require("./routes/vehicle");
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use("/uploads", express.static("./uploads"));
 
 app.use("/user", user);
 app.use("/owner", owner);
+app.use("/vehicles", vehicles);
 app.listen(8800, () => {
   console.log("Server started on port 8800");
 });

@@ -60,18 +60,26 @@ router.post("/add", (req, res) => {
     const files = req.files;
     const filePaths = files.map((file) => file.path);
 
-    const values = [
+    const values = [req.body.category_model, req.body.category_type];
+
+    const catQuery = `SELECT category_id FROM public.categories WHERE category_model = $1 AND category_type = $2`;
+
+    const category_id = await db.query(catQuery, values);
+    category_id = category_id.rows;
+
+    values = [
       req.body.owner_id,
-      req.body.category_id,
+      category_id,
+      req.body.vehicle_name,
       filePaths[0],
       filePaths[1],
       filePaths[2],
     ];
 
     const query = `INSERT INTO public.vehicles(
-        owner_id, category_id, 
+        owner_id, category_id, vehicle_name
         image_url, image_url2, image_url3)
-        VALUES ($1, $2, $3, $4, $5)`;
+        VALUES ($1, $2, $3, $4, $5, $6)`;
 
     try {
       await db.query(query, values);
