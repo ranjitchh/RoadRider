@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import herostyles from "./page.module.css";
+import Link from "next/link";
 
 const Herosection = () => {
   return (
@@ -21,7 +22,8 @@ const Herosection = () => {
                 scooty rentals.
               </p>
             </div>
-            <button className={herostyles.btn}>Rent Bike</button>
+            <Link href='./Bikes'
+             className={herostyles.btn}>Rent Bike</Link>
           </div>
 
           <div className={herostyles.right_div}>

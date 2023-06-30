@@ -36,6 +36,7 @@ const Login = () => {
         localStorage.setItem("user", res.data.user);
         localStorage.setItem("userId", res.data.id);
         localStorage.setItem("userName", res.data.name);
+        localStorage.setItem('isUserAuthenticated', true);
         toast.success("User Login Successfully ", {
           position: "top-center",
           autoClose: 4000,
@@ -81,6 +82,7 @@ const Login = () => {
         localStorage.setItem("user", res.data.user);
         localStorage.setItem("userId", res.data.id);
         localStorage.setItem("userName", res.data.name);
+        localStorage.setItem('isOwnerAuthenticated', true);
         toast.success("Owner Login Successfully ", {
           position: "top-center",
           autoClose: 4000,

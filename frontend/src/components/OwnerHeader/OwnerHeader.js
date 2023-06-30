@@ -10,6 +10,7 @@ const OwnerHeader = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("userId");
     localStorage.removeItem("userName");
+    localStorage.removeItem("isOwnerAuthenticated");
   };
 
   return (
